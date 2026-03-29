@@ -1,5 +1,6 @@
 {
     "display_name": "Mini Weather",
     "id": "mini_weather",
-    "class": "MiniWeather"
+    "class": "MiniWeather",
+    "repository": "https://github.com/saulob/InkyPi-Mini-Weather"
 }
