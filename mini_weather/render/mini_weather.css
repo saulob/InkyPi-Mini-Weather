@@ -1,0 +1,266 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.mini-weather-shell {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3.85dvh;
+  padding: 5.5dvh 4.95dvw;
+  font-family: "Jost";
+}
+
+.mini-weather-title {
+  text-align: center;
+  font-size: min(7.15dvh, 6.6dvw);
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  width: 100%;
+  /* minimum readable size used by title auto-fit script */
+  --title-min-scale: 0.62;
+}
+
+.mini-weather-date {
+  text-align: center;
+  /* smaller than title and a lighter gray */
+  color: #6c6c6c;
+  /* match forecast day text size for better balance */
+  font-size: min(4.95dvh, 4.4dvw);
+  font-weight: 500;
+  margin-top: 0.6dvh;
+}
+
+.mini-weather-layout {
+  display: grid;
+  /* keep stable column proportions so cards do not expand */
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.9fr);
+  gap: 2.2dvw;
+  align-items: stretch;
+  min-height: 0;
+}
+
+.current-card,
+.forecast-row {
+  background: rgba(80, 80, 80, 0.09);
+  border-radius: 1.76dvw;
+}
+
+.current-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 0;
+  padding: 2.42dvh 1.98dvw 1.54dvh;
+  /* fixed card width to keep layout stable */
+  width: 28dvw;
+  min-width: 28dvw;
+  max-width: 28dvw;
+  overflow: hidden;
+  /* base temp font-size for scaling rules below */
+  --temp-base: min(16.72dvh, 15.29dvw);
+}
+
+.current-label {
+  width: 100%;
+  text-align: center;
+  font-size: min(5.83dvh, 4.84dvw);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.current-main {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.77dvw;
+  /* keep icon and temperature on same line */
+  white-space: nowrap;
+  min-height: 0;
+}
+
+.current-icon {
+  width: min(18.32dvh, 16.54dvw);
+  height: min(18.32dvh, 16.54dvw);
+  object-fit: contain;
+  flex: 0 0 auto;
+  filter: grayscale(1) brightness(0.68) contrast(0.9);
+  opacity: 0.88;
+}
+
+.current-temp {
+  display: inline-flex;
+  align-items: baseline;
+  font-size: calc(var(--temp-base) * 0.82);
+  font-weight: 700;
+  line-height: 0.92;
+  white-space: nowrap;
+  flex: 0 0 auto;
+}
+
+.current-temp .unit {
+  font-size: 0.55em;
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* Scale temperature for different digit counts so value+unit fits inside fixed card */
+.current-temp.digits-2 {
+  font-size: calc(var(--temp-base) * 0.76);
+}
+.current-temp.digits-3 {
+  font-size: calc(var(--temp-base) * 0.58);
+}
+
+.current-range,
+.forecast-range {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.65dvw;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.range-high {
+  color: #b4222d;
+}
+
+.range-low {
+  color: #1c6eb6;
+}
+
+.forecast-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.98dvh;
+  min-height: 0;
+}
+
+.forecast-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.65dvw;
+  padding: 1.76dvh 1.98dvw;
+  background: transparent;
+}
+
+.forecast-row:nth-child(odd) {
+  background: rgba(80, 80, 80, 0.09);
+}
+
+.forecast-left {
+  display: flex;
+  align-items: center;
+  gap: 1.21dvw;
+  min-width: 0;
+}
+
+.forecast-icon {
+  width: min(6.6dvh, 6.6dvw);
+  height: min(6.6dvh, 6.6dvw);
+  object-fit: contain;
+  flex: 0 0 auto;
+  filter: grayscale(1) brightness(0.68) contrast(0.9);
+  opacity: 0.88;
+}
+
+.forecast-day {
+  font-size: min(4.95dvh, 4.4dvw);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.forecast-range {
+  font-size: min(5.28dvh, 4.73dvw);
+}
+
+.current-range {
+  font-size: min(5.5dvh, 4.62dvw);
+}
+
+@media (max-aspect-ratio: 1) {
+  /* Adjust layout for vertical/portrait orientation only. Keeps horizontal layout unchanged. */
+  .mini-weather-shell {
+    gap: 2.2dvh;
+    padding: 3.3dvh 3.85dvw;
+    overflow-x: hidden; /* prevent any horizontal clipping/scroll */
+  }
+
+  .mini-weather-layout {
+    grid-template-columns: 1fr;
+    gap: 2.2dvh;
+  }
+
+  /* Make the NOW card full-width and centered horizontally */
+  .current-card {
+    min-height: 30.8dvh;
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    margin: 0 auto;
+    padding: 2.42dvh 3.85dvw 1.54dvh; /* give a bit more horizontal breathing room */
+  }
+
+  /* Allow the main content inside the current card to wrap and center when needed */
+  .current-main {
+    gap: 1.21dvw;
+    white-space: normal; /* prevent long content from forcing horizontal overflow */
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* Forecast list sits below the NOW card and uses full width */
+  .forecast-list {
+    width: 100%;
+    padding: 0;
+  }
+
+  .forecast-row {
+    padding: 1.43dvh 1.98dvw;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Ensure icons/text inside forecast rows don't overflow horizontally */
+  .forecast-left,
+  .forecast-range {
+    min-width: 0;
+  }
+}
+
+/* --- No-icons mode --- */
+.no-icons .current-main {
+  justify-content: center;
+}
+
+.no-icons .current-temp {
+  font-size: calc(var(--temp-base) * 1.22);
+}
+
+.no-icons .current-temp.digits-2 {
+  font-size: calc(var(--temp-base) * 1.14);
+}
+
+.no-icons .current-temp.digits-3 {
+  font-size: calc(var(--temp-base) * 0.92);
+}
+
+.no-icons .forecast-left {
+  gap: 0;
+}
+
+@media (max-width: 250px) {
+  .mini-weather-shell {
+    font-family: "Dogica";
+  }
+}

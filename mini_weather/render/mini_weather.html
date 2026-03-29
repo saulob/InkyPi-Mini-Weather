@@ -1,0 +1,107 @@
+{% extends "plugin.html" %}
+
+{% block content %}
+<div class="mini-weather-shell{% if not show_icons %} no-icons{% endif %}">
+    <div class="mini-weather-title">{{ title }}</div>
+    <div class="mini-weather-date">{{ date }}</div>
+
+    <div class="mini-weather-layout">
+        {# Determine unit symbols for current and range displays.
+           - Metric/Imperial: current shows °C/°F, ranges show only °
+           - Standard (Kelvin): both current and ranges show K
+        #}
+        {% if units == 'metric' %}
+            {% set unit_symbol_current = '°C' %}
+            {% set unit_symbol_range = '°' %}
+        {% elif units == 'imperial' %}
+            {% set unit_symbol_current = '°F' %}
+            {% set unit_symbol_range = '°' %}
+        {% else %}
+            {% set unit_symbol_current = 'K' %}
+            {% set unit_symbol_range = 'K' %}
+        {% endif %}
+        <section class="current-card">
+            <div class="current-label">{{ current_label }}</div>
+                        <div class="current-main">
+                                {% if show_icons %}
+                                <img class="current-icon" src="{{ current_day_icon }}" alt="Current weather icon">
+                                {% endif %}
+                                {# determine number of digits (ignore leading '-') and clamp to 3 #}
+                                {% set temp_str = current_temperature|string %}
+                                {% set temp_digits = (temp_str|replace('-', ''))|length %}
+                                {% if temp_digits > 3 %}
+                                    {% set temp_class = 3 %}
+                                {% else %}
+                                    {% set temp_class = temp_digits %}
+                                {% endif %}
+                                <div class="current-temp digits-{{ temp_class }}">{{ current_temperature }}<span class="unit">{{ unit_symbol_current }}</span></div>
+                        </div>
+            <div class="current-range">
+                <span class="range-high">▲ {{ current_high }}<span class="unit">{{ unit_symbol_range }}</span></span>
+                <span class="range-low">▼ {{ current_low }}<span class="unit">{{ unit_symbol_range }}</span></span>
+            </div>
+        </section>
+
+        <section class="forecast-list">
+            {% for day in forecast_rows %}
+            <div class="forecast-row">
+                <div class="forecast-left">
+                    {% if show_icons %}
+                    <img class="forecast-icon" src="{{ day.icon }}" alt="{{ day.day }} icon">
+                    {% endif %}
+                    <span class="forecast-day">{{ day.day }}</span>
+                </div>
+                <div class="forecast-range">
+                    <span class="range-high">▲ {{ day.high }}<span class="unit">{{ unit_symbol_range }}</span></span>
+                    <span class="range-low">▼ {{ day.low }}<span class="unit">{{ unit_symbol_range }}</span></span>
+                </div>
+            </div>
+            {% endfor %}
+        </section>
+    </div>
+</div>
+
+<script>
+    (function () {
+        function fitMiniWeatherTitle() {
+            const title = document.querySelector('.mini-weather-title');
+            if (!title) return;
+
+            const computed = window.getComputedStyle(title);
+            const originalSize = parseFloat(computed.fontSize);
+            const minScale = parseFloat(computed.getPropertyValue('--title-min-scale')) || 0.62;
+            const minSize = originalSize * minScale;
+
+            // Reset to original size before measuring.
+            title.style.fontSize = '';
+
+            // Keep one line when possible; only shrink if it overflows horizontally.
+            if (title.scrollWidth <= title.clientWidth) return;
+
+            let low = minSize;
+            let high = originalSize;
+
+            while (high - low > 0.5) {
+                const mid = (low + high) / 2;
+                title.style.fontSize = mid + 'px';
+
+                if (title.scrollWidth > title.clientWidth) {
+                    high = mid;
+                } else {
+                    low = mid;
+                }
+            }
+
+            title.style.fontSize = Math.max(minSize, low) + 'px';
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', fitMiniWeatherTitle, { once: true });
+        } else {
+            fitMiniWeatherTitle();
+        }
+
+        window.addEventListener('resize', fitMiniWeatherTitle);
+    })();
+</script>
+{% endblock %}
