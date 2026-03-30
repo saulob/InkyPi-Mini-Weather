@@ -9,10 +9,10 @@ Mini Weather **is not a replacement** for the original Weather plugin, but a sim
 Install the plugin using the InkyPi CLI, providing the plugin ID and GitHub repository URL:
 
 ```bash
-inkypi install mini_weather https://github.com/saulob/InkyPi-Mini-Weather
+inkypi plugin install mini_weather https://github.com/saulob/InkyPi-Mini-Weather
 ```
 
-This plugin is an extension for the [InkyPI](https://github.com/fatihak/InkyPi) e-paper display frame and includes the following features:
+This plugin is an extension for the [InkyPi](https://github.com/fatihak/InkyPi) e-paper display frame and includes the following features:
 
 **Features**
 
