@@ -1,18 +1,18 @@
-**Description**
+# Mini Weather Plugin for InkyPi
 
 Adds a lightweight Mini Weather plugin focused on clean and fast display for e-paper screens
 
-Mini Weather **is not a replacement** for the original Weather plugin, but a simplified alternative focused on readability and ease of use
+Mini Weather **is not a replacement** for the original Weather plugin, but a simplified alternative focused on readability and ease of use. Designed for quick glance scenarios and better readability on e-paper displays.
 
-**Key differences**
+## Install
 
-- Lightweight and minimal layout
-- Focus on readability from a distance
-- Quick location selection for faster setup and testing
-- Built-in language support and localized date formatting
-- Reduced configuration for a cleaner experience
+Install the plugin using the InkyPi CLI, providing the plugin ID and GitHub repository URL:
 
-Mini Weather is designed for quick glance scenarios and better readability on e-paper displays
+```bash
+inkypi install mini_weather https://github.com/saulob/InkyPi-Mini-Weather
+```
+
+This plugin is an extension for the [InkyPI](https://github.com/fatihak/InkyPi) e-paper display frame and includes the following features:
 
 **Features**
 
@@ -24,6 +24,16 @@ Mini Weather is designed for quick glance scenarios and better readability on e-
 - Time zone handling based on location
 - Unit selection Celsius or Fahrenheit
 - Open-Meteo provider integration no API key required
+
+**Key differences**
+
+Compared to the official InkyPi Weather plugin:
+
+- Lightweight and minimal layout
+- Focus on readability from a distance
+- Quick location selection for faster setup and testing
+- Built-in language support and localized date formatting
+- Reduced configuration for a cleaner experience
 
 **Settings**
 
