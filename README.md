@@ -52,13 +52,15 @@ Compared to the official InkyPi Weather plugin:
 - Clear separation between current conditions and forecast
 - Designed to avoid ghosting on e-paper displays
 
-**Screenshots**
-
-- Main dashboard with Mini Weather widget
-- Plugin settings screen
-
 **Notes**
 
 - Uses Open-Meteo free API (no key required) or OpenWeatherMap (API key required)
 - Designed to be simple and fast avoiding heavy rendering
 - Works well with different screen sizes and orientations
+
+**Screenshots**
+
+- Mini Weather widget on the main dashboard
+- Plugin settings screen
+
+<p align="center"> <img src="screenshots/example.png" width="45%" /> <img src="screenshots/settings.png" width="45%" /> </p>
