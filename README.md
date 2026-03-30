@@ -23,7 +23,7 @@ This plugin is an extension for the [InkyPI](https://github.com/fatihak/InkyPi) 
 - Location selection via coordinates or quick presets
 - Time zone handling based on location
 - Unit selection Celsius or Fahrenheit
-- Open-Meteo provider integration no API key required
+- Weather providers: Open-Meteo (no API key required) or OpenWeatherMap (API key required)
 
 **Key differences**
 
@@ -39,7 +39,7 @@ Compared to the official InkyPi Weather plugin:
 
 - Language selection with proper date formatting per locale
 - Quick Location presets or manual latitude and longitude
-- Weather provider Open-Meteo
+- Weather provider: Open-Meteo or OpenWeatherMap (requires API key)
 - Units Celsius or Fahrenheit
 - Title mode location or custom text
 - Time zone auto or manual
@@ -59,6 +59,6 @@ Compared to the official InkyPi Weather plugin:
 
 **Notes**
 
-- Uses Open-Meteo free API no key required
+- Uses Open-Meteo free API (no key required) or OpenWeatherMap (API key required)
 - Designed to be simple and fast avoiding heavy rendering
 - Works well with different screen sizes and orientations
