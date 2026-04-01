@@ -281,6 +281,10 @@
   gap: 0;
 }
 
+.no-icons .forecast-day {
+  font-size: min(9.2dvh, 6.8dvw);
+}
+
 /* --- Forecast days scaling ---
    Fewer days = rows grow vertically (via flex:1 + space-evenly).
    All dvw values stay at the 4-day baseline so horizontal zones never shift.
