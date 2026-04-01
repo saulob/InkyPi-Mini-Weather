@@ -10,8 +10,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1.6dvh;
-  padding: 0.4dvh 0.5dvw;
+  gap: 0.8dvh;
+  padding: 0dvh 0.5dvw;
   font-family: "Jost";
 }
 
