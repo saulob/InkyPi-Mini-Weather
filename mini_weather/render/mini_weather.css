@@ -43,6 +43,7 @@
   gap: 2.2dvw;
   align-items: stretch;
   min-height: 0;
+  flex: 1;
 }
 
 .current-card,
@@ -140,8 +141,8 @@
 .forecast-list {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 1.8dvh;
+  justify-content: space-evenly;
+  gap: 0;
   min-height: 0;
 }
 
