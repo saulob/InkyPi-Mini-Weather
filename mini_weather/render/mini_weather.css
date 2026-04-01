@@ -10,14 +10,14 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 2.5dvh;
-  padding: 1.2dvh 1.2dvw;
+  gap: 1.6dvh;
+  padding: 0.4dvh 0.5dvw;
   font-family: "Jost";
 }
 
 .mini-weather-title {
   text-align: center;
-  font-size: min(9.2dvh, 8.5dvw);
+  font-size: min(10.5dvh, 9.5dvw);
   font-weight: 700;
   line-height: 1;
   white-space: nowrap;
@@ -31,16 +31,16 @@
   /* smaller than title and a lighter gray */
   color: #6c6c6c;
   /* match forecast day text size for better balance */
-  font-size: min(6.2dvh, 5.6dvw);
+  font-size: min(6.8dvh, 6.2dvw);
   font-weight: 500;
-  margin-top: 0.5dvh;
+  margin-top: 0.3dvh;
 }
 
 .mini-weather-layout {
   display: grid;
   /* keep stable column proportions so cards do not expand */
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.9fr);
-  gap: 3.0dvw;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1.9fr);
+  gap: 2.2dvw;
   align-items: stretch;
   min-height: 0;
 }
@@ -56,20 +56,20 @@
   flex-direction: column;
   justify-content: space-between;
   min-height: 0;
-  padding: 2.9dvh 2.4dvw 1.9dvh;
+  padding: 2.5dvh 1.8dvw 1.6dvh;
   /* fixed card width to keep layout stable */
-  width: 33dvw;
-  min-width: 33dvw;
-  max-width: 33dvw;
+  width: 36dvw;
+  min-width: 36dvw;
+  max-width: 36dvw;
   overflow: hidden;
   /* base temp font-size for scaling rules below */
-  --temp-base: min(19.7dvh, 18.0dvw);
+  --temp-base: min(22dvh, 20dvw);
 }
 
 .current-label {
   width: 100%;
   text-align: center;
-  font-size: min(7.2dvh, 6.0dvw);
+  font-size: min(8.0dvh, 6.6dvw);
   font-weight: 700;
   letter-spacing: 0.04em;
 }
@@ -87,8 +87,8 @@
 }
 
 .current-icon {
-  width: min(21.6dvh, 19.5dvw);
-  height: min(21.6dvh, 19.5dvw);
+  width: min(24dvh, 21.5dvw);
+  height: min(24dvh, 21.5dvw);
   object-fit: contain;
   flex: 0 0 auto;
   filter: grayscale(1) brightness(0.68) contrast(0.9);
@@ -124,7 +124,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1.95dvw;
+  gap: 1.6dvw;
   font-weight: 700;
   white-space: nowrap;
 }
@@ -141,7 +141,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 2.4dvh;
+  gap: 1.8dvh;
   min-height: 0;
 }
 
@@ -150,7 +150,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 1.95dvw;
-  padding: 2.2dvh 2.6dvw;
+  padding: 2.0dvh 2.2dvw;
   background: transparent;
 }
 
@@ -166,8 +166,8 @@
 }
 
 .forecast-icon {
-  width: min(8.2dvh, 8.2dvw);
-  height: min(8.2dvh, 8.2dvw);
+  width: min(9.0dvh, 9.0dvw);
+  height: min(9.0dvh, 9.0dvw);
   object-fit: contain;
   flex: 0 0 auto;
   filter: grayscale(1) brightness(0.68) contrast(0.9);
@@ -175,17 +175,17 @@
 }
 
 .forecast-day {
-  font-size: min(6.2dvh, 5.6dvw);
+  font-size: min(7.0dvh, 6.2dvw);
   font-weight: 500;
   letter-spacing: 0.02em;
 }
 
 .forecast-range {
-  font-size: min(6.6dvh, 6.0dvw);
+  font-size: min(7.2dvh, 6.5dvw);
 }
 
 .current-range {
-  font-size: min(6.8dvh, 5.8dvw);
+  font-size: min(7.5dvh, 6.4dvw);
 }
 
 @media (max-aspect-ratio: 1) {
