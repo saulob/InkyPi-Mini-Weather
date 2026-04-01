@@ -28,10 +28,8 @@
 
 .mini-weather-date {
   text-align: center;
-  /* smaller than title and a lighter gray */
-  color: #6c6c6c;
-  /* match forecast day text size for better balance */
-  font-size: min(6.8dvh, 6.2dvw);
+  color: #3e3e3e;
+  font-size: min(7.4dvh, 6.8dvw);
   font-weight: 500;
   margin-top: 0.3dvh;
 }
