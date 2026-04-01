@@ -183,7 +183,7 @@
 }
 
 .forecast-day {
-  font-size: min(7.8dvh, 5.8dvw);
+  font-size: min(8.5dvh, 6.1dvw);
   font-weight: 500;
   letter-spacing: 0.02em;
   white-space: nowrap;
@@ -296,7 +296,7 @@
   height: min(12.5dvh, 7.5dvw);
 }
 [data-forecast-days="3"] .forecast-day {
-  font-size: min(9.0dvh, 5.8dvw);
+  font-size: min(9.7dvh, 6.1dvw);
 }
 [data-forecast-days="3"] .forecast-range {
   font-size: min(9.0dvh, 5.8dvw);
@@ -314,7 +314,7 @@
   height: min(12.0dvh, 7.5dvw);
 }
 [data-forecast-days="2"] .forecast-day {
-  font-size: min(9.0dvh, 5.8dvw);
+  font-size: min(9.7dvh, 6.1dvw);
 }
 [data-forecast-days="2"] .forecast-range {
   font-size: min(9.0dvh, 5.8dvw);
@@ -354,7 +354,7 @@
 }
 [data-forecast-days="3"] .forecast-list.large-temps .forecast-day,
 [data-forecast-days="2"] .forecast-list.large-temps .forecast-day {
-  font-size: min(7.8dvh, 4.5dvw);
+  font-size: min(8.5dvh, 4.8dvw);
 }
 [data-forecast-days="3"] .forecast-list.large-temps .forecast-range,
 [data-forecast-days="2"] .forecast-list.large-temps .forecast-range {
