@@ -140,17 +140,20 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  gap: 0;
+  gap: 1.2dvh;
   min-height: 0;
+  flex: 1;
 }
 
 .forecast-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.95dvw;
-  padding: 2.0dvh 2.2dvw;
+  gap: 2.0dvw;
+  padding: 2.4dvh 2.8dvw;
   background: transparent;
+  flex: 1;
+  border-radius: 2.1dvw;
 }
 
 .forecast-row:nth-child(odd) {
@@ -160,13 +163,13 @@
 .forecast-left {
   display: flex;
   align-items: center;
-  gap: 1.43dvw;
+  gap: 2.2dvw;
   min-width: 0;
 }
 
 .forecast-icon {
-  width: min(9.0dvh, 9.0dvw);
-  height: min(9.0dvh, 9.0dvw);
+  width: min(10.0dvh, 10.0dvw);
+  height: min(10.0dvh, 10.0dvw);
   object-fit: contain;
   flex: 0 0 auto;
   filter: grayscale(1) brightness(0.68) contrast(0.9);
@@ -174,13 +177,13 @@
 }
 
 .forecast-day {
-  font-size: min(7.0dvh, 6.2dvw);
+  font-size: min(7.8dvh, 7.0dvw);
   font-weight: 500;
   letter-spacing: 0.02em;
 }
 
 .forecast-range {
-  font-size: min(7.2dvh, 6.5dvw);
+  font-size: min(7.8dvh, 7.2dvw);
 }
 
 .current-range {
