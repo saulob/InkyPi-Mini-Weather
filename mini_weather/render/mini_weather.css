@@ -354,7 +354,7 @@
 }
 [data-forecast-days="3"] .forecast-list.large-temps .forecast-day,
 [data-forecast-days="2"] .forecast-list.large-temps .forecast-day {
-  font-size: min(8.5dvh, 4.8dvw);
+  font-size: min(9.0dvh, 4.8dvw);
 }
 [data-forecast-days="3"] .forecast-list.large-temps .forecast-range,
 [data-forecast-days="2"] .forecast-list.large-temps .forecast-range {
@@ -366,7 +366,7 @@
 
 /* 4-day large-temps: day label slightly larger only */
 .forecast-list.large-temps .forecast-day {
-  font-size: min(8.5dvh, 4.8dvw);
+  font-size: min(9.0dvh, 4.8dvw);
 }
 
 /* 1-day large-temps: slightly larger than 2-day large-temps */
@@ -375,7 +375,7 @@
   height: min(13.0dvh, 6.5dvw);
 }
 [data-forecast-days="1"] .forecast-list.large-temps .forecast-day {
-  font-size: min(11.5dvh, 4.8dvw);
+  font-size: min(12.0dvh, 4.8dvw);
 }
 [data-forecast-days="1"] .forecast-list.large-temps .forecast-range {
   font-size: min(10.5dvh, 4.0dvw);
