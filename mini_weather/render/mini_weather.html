@@ -132,6 +132,10 @@
             });
             if (hasLarge) {
                 ranges.forEach(function (el) { el.classList.add('large-temps'); });
+                // Also mark the forecast-list so CSS can reset enhanced sizing
+                // without relying on :has() selectors.
+                var forecastList = document.querySelector('.forecast-list');
+                if (forecastList) { forecastList.classList.add('large-temps'); }
             }
         }
 

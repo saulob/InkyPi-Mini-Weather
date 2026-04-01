@@ -283,10 +283,12 @@
 
 /* --- Forecast days scaling ---
    Fewer days = rows grow vertically (via flex:1 + space-evenly).
-   All dvw values remain IDENTICAL to the 4-day baseline so horizontal
-   zones never shift. Only dvh values and padding grow for 1 and 2 days.
-   3-digit (large-temps) presets use :has() to also reduce icon and day
-   label dvh values so nothing overflows the 1fr column. */
+   All dvw values stay at the 4-day baseline so horizontal zones never shift.
+   Only dvh values and padding grow for 1, 2, and 3 days.
+
+   When 3-digit temps are detected, JS also marks .forecast-list with
+   .large-temps. Those rules override the enhanced sizing back to a safe
+   compact preset using higher-specificity selectors. */
 
 /* 3 forecast days — slight vertical improvement */
 [data-forecast-days="3"] .forecast-icon {
@@ -299,9 +301,6 @@
 [data-forecast-days="3"] .forecast-range {
   font-size: min(9.0dvh, 5.8dvw);
 }
-[data-forecast-days="3"] .forecast-range.large-temps {
-  font-size: min(7.5dvh, 4.6dvw);
-}
 [data-forecast-days="3"] .forecast-row {
   padding: 2.8dvh 2.8dvw;
 }
@@ -309,7 +308,7 @@
   gap: 1.6dvh;
 }
 
-/* 2 forecast days — moderate vertical increase (2-digit temps) */
+/* 2 forecast days — moderate vertical increase */
 [data-forecast-days="2"] .forecast-icon {
   width: min(14.0dvh, 7.5dvw);
   height: min(14.0dvh, 7.5dvw);
@@ -326,19 +325,8 @@
 [data-forecast-days="2"] .forecast-list {
   gap: 2.0dvh;
 }
-/* 2 days, 3-digit temps: scale back dvh so icon + day + range all fit */
-[data-forecast-days="2"] .forecast-range.large-temps {
-  font-size: min(7.5dvh, 4.6dvw);
-}
-[data-forecast-days="2"] .forecast-row:has(.forecast-range.large-temps) .forecast-icon {
-  width: min(10.5dvh, 7.5dvw);
-  height: min(10.5dvh, 7.5dvw);
-}
-[data-forecast-days="2"] .forecast-row:has(.forecast-range.large-temps) .forecast-day {
-  font-size: min(8.5dvh, 5.8dvw);
-}
 
-/* 1 forecast day — larger vertical increase (2-digit temps) */
+/* 1 forecast day — larger vertical increase */
 [data-forecast-days="1"] .forecast-icon {
   width: min(20.0dvh, 7.5dvw);
   height: min(20.0dvh, 7.5dvw);
@@ -352,16 +340,37 @@
 [data-forecast-days="1"] .forecast-row {
   padding: 4.5dvh 2.8dvw;
 }
-/* 1 day, 3-digit temps: scale back dvh significantly */
-[data-forecast-days="1"] .forecast-range.large-temps {
-  font-size: min(8.0dvh, 4.6dvw);
+
+/* --- 3-digit temperature overrides ---
+   When .forecast-list has .large-temps, reset icon, day, and range to
+   conservative sizes that fit "▲ 305K  ▼ 296K" without horizontal overlap.
+   Horizontal dvw caps are reduced; dvh values match 4-day baseline. */
+
+[data-forecast-days="3"] .forecast-list.large-temps .forecast-icon,
+[data-forecast-days="2"] .forecast-list.large-temps .forecast-icon,
+[data-forecast-days="1"] .forecast-list.large-temps .forecast-icon {
+  width: min(10.0dvh, 6.5dvw);
+  height: min(10.0dvh, 6.5dvw);
 }
-[data-forecast-days="1"] .forecast-row:has(.forecast-range.large-temps) .forecast-icon {
-  width: min(12.0dvh, 7.5dvw);
-  height: min(12.0dvh, 7.5dvw);
+
+[data-forecast-days="3"] .forecast-list.large-temps .forecast-day,
+[data-forecast-days="2"] .forecast-list.large-temps .forecast-day,
+[data-forecast-days="1"] .forecast-list.large-temps .forecast-day {
+  font-size: min(7.8dvh, 4.5dvw);
 }
-[data-forecast-days="1"] .forecast-row:has(.forecast-range.large-temps) .forecast-day {
-  font-size: min(9.0dvh, 5.8dvw);
+
+[data-forecast-days="3"] .forecast-list.large-temps .forecast-range,
+[data-forecast-days="2"] .forecast-list.large-temps .forecast-range,
+[data-forecast-days="1"] .forecast-list.large-temps .forecast-range {
+  font-size: min(7.8dvh, 4.0dvw);
+}
+
+[data-forecast-days="2"] .forecast-list.large-temps .forecast-row {
+  padding: 2.8dvh 2.8dvw;
+}
+
+[data-forecast-days="1"] .forecast-list.large-temps .forecast-row {
+  padding: 3.2dvh 2.8dvw;
 }
 
 @media (max-width: 250px) {
