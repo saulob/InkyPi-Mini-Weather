@@ -10,14 +10,14 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 3.3dvh;
-  padding: 3.0dvh 2.5dvw;
+  gap: 2.5dvh;
+  padding: 1.2dvh 1.2dvw;
   font-family: "Jost";
 }
 
 .mini-weather-title {
   text-align: center;
-  font-size: min(8.5dvh, 7.8dvw);
+  font-size: min(9.2dvh, 8.5dvw);
   font-weight: 700;
   line-height: 1;
   white-space: nowrap;
@@ -31,16 +31,16 @@
   /* smaller than title and a lighter gray */
   color: #6c6c6c;
   /* match forecast day text size for better balance */
-  font-size: min(5.8dvh, 5.2dvw);
+  font-size: min(6.2dvh, 5.6dvw);
   font-weight: 500;
-  margin-top: 0.7dvh;
+  margin-top: 0.5dvh;
 }
 
 .mini-weather-layout {
   display: grid;
   /* keep stable column proportions so cards do not expand */
-  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.9fr);
-  gap: 2.6dvw;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.9fr);
+  gap: 3.0dvw;
   align-items: stretch;
   min-height: 0;
 }
@@ -69,7 +69,7 @@
 .current-label {
   width: 100%;
   text-align: center;
-  font-size: min(6.9dvh, 5.7dvw);
+  font-size: min(7.2dvh, 6.0dvw);
   font-weight: 700;
   letter-spacing: 0.04em;
 }
@@ -150,7 +150,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 1.95dvw;
-  padding: 2.1dvh 2.4dvw;
+  padding: 2.2dvh 2.6dvw;
   background: transparent;
 }
 
@@ -166,8 +166,8 @@
 }
 
 .forecast-icon {
-  width: min(7.8dvh, 7.8dvw);
-  height: min(7.8dvh, 7.8dvw);
+  width: min(8.2dvh, 8.2dvw);
+  height: min(8.2dvh, 8.2dvw);
   object-fit: contain;
   flex: 0 0 auto;
   filter: grayscale(1) brightness(0.68) contrast(0.9);
@@ -175,17 +175,17 @@
 }
 
 .forecast-day {
-  font-size: min(5.8dvh, 5.2dvw);
+  font-size: min(6.2dvh, 5.6dvw);
   font-weight: 500;
   letter-spacing: 0.02em;
 }
 
 .forecast-range {
-  font-size: min(6.2dvh, 5.6dvw);
+  font-size: min(6.6dvh, 6.0dvw);
 }
 
 .current-range {
-  font-size: min(6.5dvh, 5.45dvw);
+  font-size: min(6.8dvh, 5.8dvw);
 }
 
 @media (max-aspect-ratio: 1) {
