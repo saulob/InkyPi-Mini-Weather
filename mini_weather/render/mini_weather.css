@@ -152,15 +152,14 @@
 }
 
 .forecast-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto;
   align-items: center;
-  justify-content: space-between;
-  gap: 1.5dvw;
+  gap: 2.0dvw;
   padding: 2.4dvh 2.8dvw;
   background: transparent;
   flex: 1;
   border-radius: 2.1dvw;
-  overflow: hidden;
 }
 
 .forecast-row:nth-child(odd) {
@@ -170,10 +169,8 @@
 .forecast-left {
   display: flex;
   align-items: center;
-  gap: 2.2dvw;
+  gap: 2.0dvw;
   min-width: 0;
-  flex: 1 1 auto;
-  overflow: hidden;
 }
 
 .forecast-icon {
@@ -190,13 +187,11 @@
   font-weight: 500;
   letter-spacing: 0.02em;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .forecast-range {
   font-size: min(7.8dvh, 5.8dvw);
-  flex: 0 0 auto;
+  justify-self: end;
 }
 
 .current-range {
@@ -210,7 +205,7 @@
 }
 
 .forecast-range.large-temps {
-  font-size: min(6.2dvh, 4.8dvw);
+  font-size: min(6.2dvh, 4.6dvw);
 }
 
 @media (max-aspect-ratio: 1) {
@@ -257,7 +252,9 @@
   }
 
   /* Ensure icons/text inside forecast rows don't overflow horizontally */
-  .forecast-left,
+  .forecast-left {
+    min-width: 0;
+  }
   .forecast-range {
     min-width: 0;
   }
@@ -286,41 +283,41 @@
 
 /* --- Forecast days scaling ---
    When fewer days are shown, rows get more vertical space so we scale up
-   icons and typography proportionally. All dvw values are capped to prevent
-   horizontal overflow regardless of content length (2-digit or 3-digit temps).
+   icons and typography proportionally. dvw values are capped conservatively
+   so icon + short day label + temperature range always fit the ~60dvw column.
    4 days = default (no overrides needed). */
 
-/* 3 forecast days */
+/* 3 forecast days — moderate increase */
 [data-forecast-days="3"] .forecast-icon {
-  width: min(13.0dvh, 9.0dvw);
-  height: min(13.0dvh, 9.0dvw);
+  width: min(13.0dvh, 8.5dvw);
+  height: min(13.0dvh, 8.5dvw);
 }
 [data-forecast-days="3"] .forecast-day {
-  font-size: min(9.5dvh, 6.5dvw);
+  font-size: min(9.5dvh, 6.2dvw);
 }
 [data-forecast-days="3"] .forecast-range {
-  font-size: min(9.5dvh, 6.5dvw);
+  font-size: min(9.5dvh, 6.2dvw);
 }
 [data-forecast-days="3"] .forecast-range.large-temps {
-  font-size: min(7.5dvh, 5.2dvw);
+  font-size: min(7.5dvh, 5.0dvw);
 }
 [data-forecast-days="3"] .forecast-row {
   padding: 2.8dvh 2.8dvw;
 }
 
-/* 2 forecast days */
+/* 2 forecast days — larger but still horizontally safe */
 [data-forecast-days="2"] .forecast-icon {
-  width: min(16.0dvh, 10.5dvw);
-  height: min(16.0dvh, 10.5dvw);
+  width: min(16.0dvh, 9.5dvw);
+  height: min(16.0dvh, 9.5dvw);
 }
 [data-forecast-days="2"] .forecast-day {
-  font-size: min(12.0dvh, 7.2dvw);
+  font-size: min(12.0dvh, 6.8dvw);
 }
 [data-forecast-days="2"] .forecast-range {
-  font-size: min(12.0dvh, 7.2dvw);
+  font-size: min(12.0dvh, 6.8dvw);
 }
 [data-forecast-days="2"] .forecast-range.large-temps {
-  font-size: min(9.0dvh, 5.8dvw);
+  font-size: min(9.0dvh, 5.5dvw);
 }
 [data-forecast-days="2"] .forecast-row {
   padding: 3.0dvh 2.8dvw;
@@ -329,19 +326,19 @@
   gap: 2.0dvh;
 }
 
-/* 1 forecast day */
+/* 1 forecast day — largest content, still respecting horizontal bounds */
 [data-forecast-days="1"] .forecast-icon {
-  width: min(20.0dvh, 12.0dvw);
-  height: min(20.0dvh, 12.0dvw);
+  width: min(22.0dvh, 11.0dvw);
+  height: min(22.0dvh, 11.0dvw);
 }
 [data-forecast-days="1"] .forecast-day {
-  font-size: min(15.0dvh, 8.0dvw);
+  font-size: min(16.0dvh, 7.5dvw);
 }
 [data-forecast-days="1"] .forecast-range {
-  font-size: min(15.0dvh, 8.0dvw);
+  font-size: min(16.0dvh, 7.5dvw);
 }
 [data-forecast-days="1"] .forecast-range.large-temps {
-  font-size: min(11.0dvh, 6.2dvw);
+  font-size: min(12.0dvh, 6.0dvw);
 }
 [data-forecast-days="1"] .forecast-row {
   padding: 3.5dvh 2.8dvw;
