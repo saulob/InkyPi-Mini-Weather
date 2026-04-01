@@ -1,6 +1,6 @@
 # Mini Weather Plugin for InkyPi
 
-Adds a lightweight Mini Weather plugin focused on clean and fast display for e-paper screens
+A lightweight Mini Weather plugin focused on clean and fast display for e-paper screens
 
 Mini Weather **is not a replacement** for the original Weather plugin, but a simplified alternative focused on readability and ease of use. Designed for quick glance scenarios and better readability on e-paper displays.
 
@@ -17,12 +17,13 @@ This plugin is an extension for the [InkyPi](https://github.com/fatihak/InkyPi) 
 **Features**
 
 - Current weather with icon and temperature
-- Daily forecast for next days
+- Daily forecast for upcoming days
 - High and low temperatures
 - Support for multiple languages
 - Location selection via coordinates or quick presets
 - Time zone handling based on location
-- Unit selection Celsius or Fahrenheit
+- Configurable number of forecast days
+- Unit selection (Celsius or Fahrenheit)
 - Weather providers: Open-Meteo (no API key required) or OpenWeatherMap (API key required)
 
 **Key differences**
@@ -34,15 +35,19 @@ Compared to the official InkyPi Weather plugin:
 - Quick location selection for faster setup and testing
 - Built-in language support and localized date formatting
 - Reduced configuration for a cleaner experience
+- Improved readability with larger text and spacing
 
 **Settings**
 
 - Language selection with proper date formatting per locale
 - Quick Location presets or manual latitude and longitude
 - Weather provider: Open-Meteo or OpenWeatherMap (requires API key)
-- Units Celsius or Fahrenheit
-- Title mode location or custom text
-- Time zone auto or manual
+- Unit selection Celsius or Fahrenheit
+- Forecast days selection
+- Title mode: location or custom text
+- Show or hide weather icons
+- Optional colorful icons
+- Time zone selection: location time zone or local time zone
 - Style section for layout customization
 
 **UI**
@@ -55,7 +60,7 @@ Compared to the official InkyPi Weather plugin:
 **Notes**
 
 - Uses Open-Meteo free API (no key required) or OpenWeatherMap (API key required)
-- Designed to be simple and fast avoiding heavy rendering
+- Designed to be simple and fast, avoiding heavy rendering
 - Works well with different screen sizes and orientations
 
 **Screenshots**
