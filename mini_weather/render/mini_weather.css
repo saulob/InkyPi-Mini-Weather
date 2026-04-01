@@ -292,7 +292,7 @@
 
 /* 4-day with icons, 2-digit temps only */
 [data-forecast-days="4"]:not(.no-icons) .forecast-list:not(.large-temps) .forecast-day {
-  font-size: min(9.0dvh, 5.8dvw);
+  font-size: min(8.6dvh, 5.8dvw);
 }
 
 /* --- Forecast days scaling ---
