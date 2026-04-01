@@ -290,6 +290,11 @@
   font-size: min(8.2dvh, 6.8dvw);
 }
 
+/* 4-day with icons, 2-digit temps only */
+[data-forecast-days="4"]:not(.no-icons) .forecast-list:not(.large-temps) .forecast-day {
+  font-size: min(9.0dvh, 5.8dvw);
+}
+
 /* --- Forecast days scaling ---
    Fewer days = rows grow vertically (via flex:1 + space-evenly).
    All dvw values stay at the 4-day baseline so horizontal zones never shift.
