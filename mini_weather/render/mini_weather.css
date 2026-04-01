@@ -55,7 +55,7 @@
   flex-direction: column;
   justify-content: space-between;
   min-height: 0;
-  padding: 2.5dvh 1.8dvw 1.6dvh;
+  padding: 2.5dvh 1.8dvw 2.4dvh;
   /* fixed card width to keep layout stable */
   width: 36dvw;
   min-width: 36dvw;
@@ -187,7 +187,8 @@
 }
 
 .current-range {
-  font-size: min(7.5dvh, 6.4dvw);
+  font-size: min(9.4dvh, 8.0dvw);
+  gap: 2.4dvw;
 }
 
 @media (max-aspect-ratio: 1) {
