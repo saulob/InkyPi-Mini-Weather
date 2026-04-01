@@ -310,17 +310,17 @@
 
 /* 2 forecast days — moderate vertical increase */
 [data-forecast-days="2"] .forecast-icon {
-  width: min(14.0dvh, 7.5dvw);
-  height: min(14.0dvh, 7.5dvw);
+  width: min(12.0dvh, 7.5dvw);
+  height: min(12.0dvh, 7.5dvw);
 }
 [data-forecast-days="2"] .forecast-day {
-  font-size: min(10.5dvh, 5.8dvw);
+  font-size: min(9.0dvh, 5.8dvw);
 }
 [data-forecast-days="2"] .forecast-range {
-  font-size: min(10.5dvh, 5.8dvw);
+  font-size: min(9.0dvh, 5.8dvw);
 }
 [data-forecast-days="2"] .forecast-row {
-  padding: 3.2dvh 2.8dvw;
+  padding: 2.8dvh 2.8dvw;
 }
 [data-forecast-days="2"] .forecast-list {
   gap: 2.0dvh;
@@ -346,31 +346,37 @@
    conservative sizes that fit "▲ 305K  ▼ 296K" without horizontal overlap.
    Horizontal dvw caps are reduced; dvh values match 4-day baseline. */
 
+/* 3-day and 2-day large-temps: conservative baseline */
 [data-forecast-days="3"] .forecast-list.large-temps .forecast-icon,
-[data-forecast-days="2"] .forecast-list.large-temps .forecast-icon,
-[data-forecast-days="1"] .forecast-list.large-temps .forecast-icon {
+[data-forecast-days="2"] .forecast-list.large-temps .forecast-icon {
   width: min(10.0dvh, 6.5dvw);
   height: min(10.0dvh, 6.5dvw);
 }
-
 [data-forecast-days="3"] .forecast-list.large-temps .forecast-day,
-[data-forecast-days="2"] .forecast-list.large-temps .forecast-day,
-[data-forecast-days="1"] .forecast-list.large-temps .forecast-day {
+[data-forecast-days="2"] .forecast-list.large-temps .forecast-day {
   font-size: min(7.8dvh, 4.5dvw);
 }
-
 [data-forecast-days="3"] .forecast-list.large-temps .forecast-range,
-[data-forecast-days="2"] .forecast-list.large-temps .forecast-range,
-[data-forecast-days="1"] .forecast-list.large-temps .forecast-range {
+[data-forecast-days="2"] .forecast-list.large-temps .forecast-range {
   font-size: min(7.8dvh, 4.0dvw);
 }
-
 [data-forecast-days="2"] .forecast-list.large-temps .forecast-row {
   padding: 2.8dvh 2.8dvw;
 }
 
+/* 1-day large-temps: slightly larger than 2-day large-temps */
+[data-forecast-days="1"] .forecast-list.large-temps .forecast-icon {
+  width: min(13.0dvh, 6.5dvw);
+  height: min(13.0dvh, 6.5dvw);
+}
+[data-forecast-days="1"] .forecast-list.large-temps .forecast-day {
+  font-size: min(10.5dvh, 4.5dvw);
+}
+[data-forecast-days="1"] .forecast-list.large-temps .forecast-range {
+  font-size: min(10.5dvh, 4.0dvw);
+}
 [data-forecast-days="1"] .forecast-list.large-temps .forecast-row {
-  padding: 3.2dvh 2.8dvw;
+  padding: 4.0dvh 2.8dvw;
 }
 
 @media (max-width: 250px) {
