@@ -1,7 +1,7 @@
 {% extends "plugin.html" %}
 
 {% block content %}
-<div class="mini-weather-shell{% if not show_icons %} no-icons{% endif %}" data-forecast-days="{{ forecast_days }}">
+<div class="mini-weather-shell{% if not show_icons %} no-icons{% endif %}{% if color_icons %} color-icons{% endif %}" data-forecast-days="{{ forecast_days }}">
     <div class="mini-weather-title">{{ title }}</div>
     <div class="mini-weather-date">{{ date }}</div>
 

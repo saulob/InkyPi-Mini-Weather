@@ -100,6 +100,11 @@
   opacity: 0.88;
 }
 
+.color-icons .current-icon {
+  filter: none;
+  opacity: 1;
+}
+
 .current-temp {
   display: inline-flex;
   align-items: baseline;
@@ -180,6 +185,11 @@
   flex: 0 0 auto;
   filter: grayscale(1) brightness(0.68) contrast(0.9);
   opacity: 0.88;
+}
+
+.color-icons .forecast-icon {
+  filter: none;
+  opacity: 1;
 }
 
 .forecast-day {

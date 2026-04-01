@@ -381,6 +381,7 @@ class MiniWeather(Weather):
                 "provider_timezone": provider_tz.zone,
                 "plugin_settings": settings,
                 "show_icons": settings.get("showIcons", "true") != "false",
+                "color_icons": settings.get("colorIcons", "false") == "true",
             }
         )
 

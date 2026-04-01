@@ -93,6 +93,15 @@
 </div>
 
 <div class="form-group">
+    <label for="colorIcons" class="form-label">Colorful icons:</label>
+    <div class="toggle-container">
+        <input type="hidden" id="colorIconsValue" name="colorIcons" value="false">
+        <input type="checkbox" id="colorIcons" class="toggle-checkbox" onclick="document.getElementById('colorIconsValue').value = this.checked ? 'true' : 'false';">
+        <label for="colorIcons" class="toggle-label"></label>
+    </div>
+</div>
+
+<div class="form-group">
     <label for="weatherTimeZone" class="form-label">Time Zone:</label>
     <select id="weatherTimeZone" name="weatherTimeZone" class="form-input">
         <option value="locationTimeZone">Use Location Time Zone</option>
@@ -257,6 +266,11 @@
             const showIconsChecked = showIconsVal === undefined || showIconsVal === null || showIconsVal === 'true' || showIconsVal === true;
             document.getElementById('showIcons').checked = showIconsChecked;
             document.getElementById('showIconsValue').value = showIconsChecked ? 'true' : 'false';
+
+            const colorIconsVal = pluginSettings.colorIcons;
+            const colorIconsChecked = colorIconsVal === 'true' || colorIconsVal === true;
+            document.getElementById('colorIcons').checked = colorIconsChecked;
+            document.getElementById('colorIconsValue').value = colorIconsChecked ? 'true' : 'false';
 
             selectedTitle = pluginSettings.titleSelection || 'location';
             weatherProvider = pluginSettings.weatherProvider || 'OpenMeteo';
