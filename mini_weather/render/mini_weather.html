@@ -102,6 +102,28 @@
         }
 
         window.addEventListener('resize', fitMiniWeatherTitle);
+
+        // Apply .large-temps class to all range elements if any value has 3+ digits.
+        function applyLargeTempsClass() {
+            const ranges = document.querySelectorAll('.current-range, .forecast-range');
+            let hasLarge = false;
+            ranges.forEach(function (el) {
+                el.querySelectorAll('.range-high, .range-low').forEach(function (span) {
+                    // Extract numeric part only (strip arrows, spaces, units)
+                    const num = span.textContent.replace(/[^0-9]/g, '');
+                    if (num.length >= 3) hasLarge = true;
+                });
+            });
+            if (hasLarge) {
+                ranges.forEach(function (el) { el.classList.add('large-temps'); });
+            }
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', applyLargeTempsClass, { once: true });
+        } else {
+            applyLargeTempsClass();
+        }
     })();
 </script>
 {% endblock %}

@@ -191,6 +191,15 @@
   gap: 2.4dvw;
 }
 
+/* Shrink range text when any value has 3+ digits (e.g. Kelvin temps like 295K) */
+.current-range.large-temps {
+  font-size: min(7.5dvh, 6.4dvw);
+}
+
+.forecast-range.large-temps {
+  font-size: min(6.2dvh, 5.8dvw);
+}
+
 @media (max-aspect-ratio: 1) {
   /* Adjust layout for vertical/portrait orientation only. Keeps horizontal layout unchanged. */
   .mini-weather-shell {
