@@ -69,23 +69,35 @@
 
             const computed = window.getComputedStyle(title);
             const originalSize = parseFloat(computed.fontSize);
-            const minScale = parseFloat(computed.getPropertyValue('--title-min-scale')) || 0.62;
+            const minScale = parseFloat(computed.getPropertyValue('--title-min-scale')) || 0.55;
             const minSize = originalSize * minScale;
 
             // Reset to original size before measuring.
             title.style.fontSize = '';
 
-            // Keep one line when possible; only shrink if it overflows horizontally.
-            if (title.scrollWidth <= title.clientWidth) return;
+            // Temporarily remove line-clamp so we can measure true content height.
+            title.style.webkitLineClamp = 'none';
+            title.style.overflow = 'visible';
 
+            const lineHeight = parseFloat(window.getComputedStyle(title).lineHeight);
+            const maxTwoLineHeight = lineHeight * 2 + 2; // +2px fudge for sub-pixel rounding
+
+            if (title.scrollHeight <= maxTwoLineHeight) {
+                // Fits in 2 lines at default size — restore and done.
+                title.style.webkitLineClamp = '';
+                title.style.overflow = '';
+                return;
+            }
+
+            // Binary search: find largest font size that fits within 2 lines.
             let low = minSize;
             let high = originalSize;
 
             while (high - low > 0.5) {
                 const mid = (low + high) / 2;
                 title.style.fontSize = mid + 'px';
-
-                if (title.scrollWidth > title.clientWidth) {
+                const lh = parseFloat(window.getComputedStyle(title).lineHeight);
+                if (title.scrollHeight > lh * 2 + 2) {
                     high = mid;
                 } else {
                     low = mid;
@@ -93,6 +105,10 @@
             }
 
             title.style.fontSize = Math.max(minSize, low) + 'px';
+
+            // Restore CSS line-clamp (handles ellipsis if still overflowing at minSize).
+            title.style.webkitLineClamp = '';
+            title.style.overflow = '';
         }
 
         if (document.readyState === 'loading') {

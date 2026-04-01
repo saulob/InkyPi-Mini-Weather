@@ -19,11 +19,17 @@
   text-align: center;
   font-size: min(10.5dvh, 9.5dvw);
   font-weight: 700;
-  line-height: 1;
-  white-space: nowrap;
+  line-height: 1.18;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
   width: 100%;
   /* minimum readable size used by title auto-fit script */
-  --title-min-scale: 0.62;
+  --title-min-scale: 0.55;
 }
 
 .mini-weather-date {
