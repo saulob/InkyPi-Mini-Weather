@@ -207,9 +207,26 @@
             if (Number.isFinite(quickLat) && Number.isFinite(quickLong)) {
                 latitude = quickLat;
                 longitude = quickLong;
+                // Flag that the coordinates are being set by Quick Location
+                // so the input listeners below do not reset it immediately.
+                $latitude._settingFromQuickLocation = true;
+                $longitude._settingFromQuickLocation = true;
                 $latitude.value = quickLat.toFixed(4);
                 $longitude.value = quickLong.toFixed(4);
+                $latitude._settingFromQuickLocation = false;
+                $longitude._settingFromQuickLocation = false;
             }
+        });
+
+        // Reset Quick Location to "Select a city..." when the user manually
+        // edits either coordinate field, so it doesn't show a stale city name.
+        [$latitude, $longitude].forEach((field) => {
+            field.addEventListener('input', () => {
+                if (field._settingFromQuickLocation) return;
+                if ($quickLocation.value !== '') {
+                    $quickLocation.value = '';
+                }
+            });
         });
 
         if (loadPluginSettings) {
