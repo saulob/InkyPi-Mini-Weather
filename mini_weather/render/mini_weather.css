@@ -282,67 +282,9 @@
 }
 
 /* --- Forecast days scaling ---
-   When fewer days are shown, rows get more vertical space so we scale up
-   icons and typography proportionally. dvw values are capped conservatively
-   so icon + short day label + temperature range always fit the ~60dvw column.
-   4 days = default (no overrides needed). */
-
-/* 3 forecast days — moderate increase */
-[data-forecast-days="3"] .forecast-icon {
-  width: min(13.0dvh, 8.5dvw);
-  height: min(13.0dvh, 8.5dvw);
-}
-[data-forecast-days="3"] .forecast-day {
-  font-size: min(9.5dvh, 6.2dvw);
-}
-[data-forecast-days="3"] .forecast-range {
-  font-size: min(9.5dvh, 6.2dvw);
-}
-[data-forecast-days="3"] .forecast-range.large-temps {
-  font-size: min(7.5dvh, 5.0dvw);
-}
-[data-forecast-days="3"] .forecast-row {
-  padding: 2.8dvh 2.8dvw;
-}
-
-/* 2 forecast days — larger but still horizontally safe */
-[data-forecast-days="2"] .forecast-icon {
-  width: min(16.0dvh, 9.5dvw);
-  height: min(16.0dvh, 9.5dvw);
-}
-[data-forecast-days="2"] .forecast-day {
-  font-size: min(12.0dvh, 6.8dvw);
-}
-[data-forecast-days="2"] .forecast-range {
-  font-size: min(12.0dvh, 6.8dvw);
-}
-[data-forecast-days="2"] .forecast-range.large-temps {
-  font-size: min(9.0dvh, 5.5dvw);
-}
-[data-forecast-days="2"] .forecast-row {
-  padding: 3.0dvh 2.8dvw;
-}
-[data-forecast-days="2"] .forecast-list {
-  gap: 2.0dvh;
-}
-
-/* 1 forecast day — largest content, still respecting horizontal bounds */
-[data-forecast-days="1"] .forecast-icon {
-  width: min(22.0dvh, 11.0dvw);
-  height: min(22.0dvh, 11.0dvw);
-}
-[data-forecast-days="1"] .forecast-day {
-  font-size: min(16.0dvh, 7.5dvw);
-}
-[data-forecast-days="1"] .forecast-range {
-  font-size: min(16.0dvh, 7.5dvw);
-}
-[data-forecast-days="1"] .forecast-range.large-temps {
-  font-size: min(12.0dvh, 6.0dvw);
-}
-[data-forecast-days="1"] .forecast-row {
-  padding: 3.5dvh 2.8dvw;
-}
+   Fewer days = rows grow vertically (via flex:1 + space-evenly).
+   Horizontal proportions stay identical to the stable 4-day baseline.
+   No icon, font, or width changes per forecast_days. */
 
 @media (max-width: 250px) {
   .mini-weather-shell {
