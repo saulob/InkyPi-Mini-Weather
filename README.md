@@ -68,4 +68,4 @@ Compared to the official InkyPi Weather plugin:
 - Mini Weather widget on the main dashboard
 - Plugin settings screen
 
-<p align="center"> <img src="screenshots/example.png" width="45%" /> <img src="screenshots/settings.png" width="45%" /> </p>
+<p align="center"> <img src="screenshots/example.png?v=2" width="45%" /> <img src="screenshots/settings.png?v=2" width="45%" /> </p>
