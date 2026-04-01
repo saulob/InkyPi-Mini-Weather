@@ -60,6 +60,14 @@
         <option value="metric">Metric (°C)</option>
         <option value="standard">Standard (K)</option>
     </select>
+
+    <label for="forecastDays" class="form-label">Forecast Days:</label>
+    <select id="forecastDays" name="forecastDays" class="form-input">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4" selected>4</option>
+    </select>
 </div>
 
 <div class="form-group" id="titleOptionWrapper">
@@ -242,6 +250,7 @@
             document.getElementById('longitude').value = pluginSettings.longitude || '';
             document.getElementById('weatherProvider').value = pluginSettings.weatherProvider || 'OpenMeteo';
             document.getElementById('units').value = pluginSettings.units || 'imperial';
+            document.getElementById('forecastDays').value = pluginSettings.forecastDays || '4';
             document.getElementById('weatherTimeZone').value = pluginSettings.weatherTimeZone || 'locationTimeZone';
 
             const showIconsVal = pluginSettings.showIcons;

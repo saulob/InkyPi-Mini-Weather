@@ -344,7 +344,8 @@ class MiniWeather(Weather):
             raise RuntimeError("Forecast data unavailable.")
 
         current_day = forecast[0]
-        forecast_rows = forecast[1:5] if len(forecast) > 1 else forecast[:4]
+        forecast_days = max(1, min(4, int(settings.get("forecastDays", 4))))
+        forecast_rows = forecast[1:1 + forecast_days] if len(forecast) > 1 else forecast[:forecast_days]
         labels = get_language_labels(language)
 
         # localized date string
@@ -362,6 +363,7 @@ class MiniWeather(Weather):
                 "current_high": current_day["high"],
                 "current_low": current_day["low"],
                 "forecast_rows": self._localize_forecast_rows(forecast_rows, labels),
+                "forecast_days": len(forecast_rows),
                 "provider_timezone": provider_tz.zone,
                 "plugin_settings": settings,
                 "show_icons": settings.get("showIcons", "true") != "false",
