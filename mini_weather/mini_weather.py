@@ -355,6 +355,20 @@ class MiniWeather(Weather):
         now = datetime.datetime.now(provider_tz)
         localized_date = format_localized_date(language, now)
 
+        # Fix weekday labels: the parent parser may derive day labels from
+        # date-only strings forced to UTC midnight, which shifts the weekday
+        # backwards for timezones west of UTC.  Override weekday_index using
+        # calendar math so the localization always maps to the correct day.
+        # forecast_rows[0] = tomorrow, forecast_rows[1] = day-after, etc.
+        logger.debug("Mini Weather NOW date: %s (%s)", now.strftime("%Y-%m-%d"), now.strftime("%A"))
+        for i, row in enumerate(forecast_rows):
+            target_date = now + datetime.timedelta(days=i + 1)
+            row["weekday_index"] = target_date.weekday()  # Monday=0 .. Sunday=6
+            logger.debug(
+                "  Forecast row %d: %s (%s) weekday_index=%d",
+                i + 1, target_date.strftime("%Y-%m-%d"), target_date.strftime("%A"), row["weekday_index"],
+            )
+
         template_params.update(
             {
                 "title": title,
